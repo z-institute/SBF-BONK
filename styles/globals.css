@@ -1,3 +1,5 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Kavoon&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Kavoon&family=Noto+Sans+TC&display=swap");
 html,
 body {
   padding: 0;
@@ -13,4 +15,10 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: "Kavoon", "Noto Sans TC", sans-serif, cursive;
+}
+
+img {
+  width: 22px;
+  height: 33.24px;
 }

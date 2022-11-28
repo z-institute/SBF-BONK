@@ -1,102 +1,188 @@
-.container {
-  padding: 0 2rem;
-}
-
-.main {
-  min-height: 100vh;
-  padding: 4rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer {
-  display: flex;
-  flex: 1;
-  padding: 2rem 0;
-  border-top: 1px solid #eaeaea;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}
-
-.title a {
-  color: #0d76fc;
-  text-decoration: none;
-}
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
-}
-
-.title {
-  margin: 3rem 0;
-  line-height: 1;
-  font-size: 2.5rem;
-}
-
-.title,
-.description {
+/* -----↓↓↓↓ common style ↓↓↓↓----- */
+.queText__en {
+  font-family: "Kavoon";
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 38px;
+  letter-spacing: 0em;
   text-align: center;
 }
-
-.description {
-  margin: 0 0 2rem;
-  line-height: 1.5;
-  font-size: 1.5rem;
+.queText__tw {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0em;
+  text-align: center;
 }
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
+.queText {
+  display: none;
+  color: #ffffff;
+  position: absolute;
 }
-
-.card {
-  margin: 1rem;
-  padding: 1.5rem;
-  text-align: left;
-  color: inherit;
-  text-decoration: none;
-  border: 1px solid #eaeaea;
-  border-radius: 10px;
-  transition: color 0.15s ease, border-color 0.15s ease;
-  max-width: 350px;
+.que {
+  position: absolute;
+  display: block;
+  cursor: pointer;
+  z-index: 10;
+  animation: icon;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
 }
-
-.card:hover,
-.card:focus,
-.card:active {
-  color: #0d76fc;
-  border-color: #0d76fc;
-}
-
-.card h2 {
-  margin: 0 0 1rem 0;
-  font-size: 1.2rem;
-}
-
-.card p {
-  margin: 0;
-  font-size: 1.2rem;
-  line-height: 1.5;
-}
-
-@media (max-width: 600px) {
-  .grid {
-    width: 100%;
-    flex-direction: column;
+@keyframes icon {
+  0% {
+    transform: translateY(0px);
   }
+  50% {
+    transform: translateY(10px);
+  }
+  0% {
+    transform: translateY(0px);
+  }
+}
+.que:hover + .queText {
+  display: block;
+}
+/* -----↑↑↑↑ common style ↑↑↑↑----- */
+.que5 {
+  left: calc(313px - 20px + 252px);
+  top: calc(754.11px - 20px + 180px);
+  animation-delay: 2s;
+}
+.que5Text {
+  left: 523px;
+  top: 874px;
+}
+.que6 {
+  left: calc(111px - 20px + 252px);
+  top: calc(455px - 20px + 180px);
+  animation-delay: 1s;
+}
+.que6Text {
+  left: 324px;
+  top: 570px;
+}
+
+.que7 {
+  left: calc(1115px - 20px + 252px);
+  top: calc(719px - 20px + 180px);
+  animation-delay: 2.5s;
+}
+.que7Text {
+  left: 1312px;
+  top: 990px;
+}
+
+.que8 {
+  left: calc(1169px - 20px + 252px);
+  top: calc(615px - 20px + 180px);
+  animation-delay: 1.5s;
+}
+.que8Text {
+  left: 1380px;
+  top: 845px;
+}
+.que9 {
+  left: calc(1258px - 20px + 252px);
+  top: calc(198px - 20px + 180px);
+  animation-delay: 2s;
+}
+.que9Text {
+  left: 1375px;
+  top: 300px;
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(40px + 180px);
+
+  font-family: "Kavoon";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 90px;
+  line-height: 112px;
+
+  /* text-align: center; */
+
+  color: #fcba10;
+  z-index: 1;
+}
+.logo::before {
+  content: attr(data-stroke);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  -webkit-text-stroke: 18px #ffffff;
+  text-shadow: 0px 11px 25px rgba(0, 0, 0, 1);
+}
+.slogan {
+  position: absolute;
+  /* width: 314px; */
+  /* height: 30px; */
+  left: calc(50% - 314px / 2);
+  bottom: 717px;
+
+  font-family: "Kavoon";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 25px;
+  text-align: center;
+
+  color: #ffffff;
+}
+.cz {
+  position: absolute;
+  width: 299px;
+  height: 298px;
+  left: calc(50% - 299px / 2 - 169.5px);
+  top: calc(50% - 298px / 2 - 47px + 94px);
+  z-index: 3;
+}
+
+.sbf {
+  position: absolute;
+  width: 302px;
+  height: 304px;
+  left: calc(50% - 302px / 2 + 163px);
+  top: calc(50% - 304px / 2 - 7px + 94px);
+  z-index: 1;
+}
+.batWrapper {
+  position: absolute;
+  width: 815px;
+  height: 814px;
+  top: calc(182px + 191px);
+  left: calc(240px + 252px);
+  z-index: 2;
+  transform-origin: center;
+  background-image: url("/bat.png");
+  background-position: -160px -160px;
+}
+.bonkButton {
+  position: absolute;
+
+  left: calc(50% - 200px / 2);
+  bottom: 87px;
+
+  background: #ffffff;
+  box-shadow: 0px 6px 0px #169bb4;
+  border-radius: 38.5px;
+  cursor: pointer;
+  font-family: "Kavoon";
+}
+.nav {
+  margin: 0 200px;
+}
+.nav button[type="button"] > div {
+  font-size: 16px;
+}
+.nav button[type="button"] {
+  height: 50px;
+}
+.nav > div:nth-child(4) {
+  align-items: center;
+  margin-left: 10px;
 }
