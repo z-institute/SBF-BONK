@@ -1,5 +1,5 @@
 import { useAccount, useContractWrite } from "wagmi";
-import { NFTAddress, PUBLIC_PRICE } from "../constants";
+import { NFTAddress, password } from "../constants";
 import NFTAbi from "../abis/NFTAbi.json";
 import { utils } from "ethers";
 
@@ -10,12 +10,8 @@ const useNFTMint = (mintCount: number) => {
     mode: "recklesslyUnprepared",
     address: NFTAddress,
     abi: NFTAbi,
-    functionName: "publicMintSecond",
-    args: [address, mintCount.toString()],
-    overrides: {
-      from: address,
-      value: utils.parseEther((PUBLIC_PRICE * mintCount).toString()),
-    },
+    functionName: "mint",
+    args: [password],
   });
 
   return {

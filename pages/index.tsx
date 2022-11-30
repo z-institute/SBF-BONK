@@ -16,6 +16,8 @@ import {
   Text,
   Button,
   Stack,
+  Image,
+  Link
 } from "@chakra-ui/react";
 
 const Home: NextPage = () => {
@@ -113,7 +115,7 @@ const Home: NextPage = () => {
           {/* Risk spreading */}
           <Box>
             <Box className={classNames(styles["que5"], styles["que"])} p={5}>
-              <img src={Question.src} alt="" />
+              <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que5Text"], styles["queText"])}>
               <Text className={styles["queText__en"]}>Risk spreading !</Text>
@@ -125,7 +127,7 @@ const Home: NextPage = () => {
           {/* Key management */}
           <Box>
             <Box className={classNames(styles["que6"], styles["que"])} p={5}>
-              <img src={Question.src} alt="" />
+              <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que6Text"], styles["queText"])}>
               <Text className={styles["queText__en"]}>Key management !</Text>
@@ -137,7 +139,7 @@ const Home: NextPage = () => {
           {/* Management ! */}
           <Box>
             <Box className={classNames(styles["que7"], styles["que"])} p={5}>
-              <img src={Question.src} alt="" />
+              <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que7Text"], styles["queText"])}>
               <Text className={styles["queText__en"]}>Transparency !</Text>
@@ -149,7 +151,7 @@ const Home: NextPage = () => {
           {/* Management ! */}
           <Box>
             <Box className={classNames(styles["que8"], styles["que"])} p={5}>
-              <img src={Question.src} alt="" />
+              <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que8Text"], styles["queText"])}>
               <Text className={styles["queText__en"]}>Management !</Text>
@@ -161,7 +163,7 @@ const Home: NextPage = () => {
           {/* Audit procedure ! */}
           <Box>
             <Box className={classNames(styles["que9"], styles["que"])} p={5}>
-              <img src={Question.src} alt="" />
+              <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que9Text"], styles["queText"])}>
               <Text className={styles["queText__en"]}>Audit procedure !</Text>
@@ -172,8 +174,8 @@ const Home: NextPage = () => {
           </Box>
 
           {/* images */}
-          <img src={Cz.src} alt="CZ" className={styles["cz"]} ref={czActive} />
-          <img
+          <Image src={Cz.src} alt="CZ" className={styles["cz"]} ref={czActive} />
+          <Image
             src={Sbf.src}
             alt="SBF"
             className={styles["sbf"]}
@@ -273,9 +275,9 @@ const Home: NextPage = () => {
               zIndex={10}
               textDecoration="underline"
             >
-              <a href={link} target="_blank">
+              <Link href={link} target="_blank">
                 View on block explorer
-              </a>
+              </Link>
             </Text>
           )}
 

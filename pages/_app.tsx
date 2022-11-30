@@ -11,6 +11,7 @@ import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import { ChakraProvider } from "@chakra-ui/react";
 
+
 const { chains, provider, webSocketProvider } = configureChains(
   [
     chain.mainnet,

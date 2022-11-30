@@ -1,2 +1,2 @@
-export const NFTAddress = "0x6fC9d31fcdBCCA0cb4a68840B87F0a80c8Ce12Da";
-export const PUBLIC_PRICE = 0.025;
+export const NFTAddress = "0xffB1324Dd2A6A560463c881975415106716A2d2b";
+export const password = "ToBonkOrNotToBonk"
