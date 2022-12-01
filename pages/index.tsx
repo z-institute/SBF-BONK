@@ -108,6 +108,13 @@ const Home: NextPage = () => {
             className={styles["logo"]}
             data-stroke="CYBERBONK"
             fontSize={isMobile ? "60px" : "90px"}
+            _before={
+              isMobile
+                ? { textShadow: "none" }
+                : {
+                    textShadow: "0px 11px 25px rgba(0, 0, 0, 1)",
+                  }
+            }
           >
             CYBERBONK
           </Text>
@@ -308,7 +315,7 @@ const Home: NextPage = () => {
             <Stack
               position="absolute"
               fontSize="20px"
-              top="80%"
+              top="36%"
               left="50%"
               transform="translateX(-50%)"
               color="#ffffff"

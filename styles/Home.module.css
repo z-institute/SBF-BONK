@@ -110,7 +110,6 @@
   top: 0;
   z-index: -1;
   -webkit-text-stroke: 18px #ffffff;
-  text-shadow: 0px 11px 25px rgba(0, 0, 0, 1);
 }
 .slogan {
   position: absolute;
