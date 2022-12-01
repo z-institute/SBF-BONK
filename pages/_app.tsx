@@ -42,7 +42,7 @@ const wagmiClient = createClient({
   webSocketProvider,
 });
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: any) {
   return (
     <ChakraProvider>
       <WagmiConfig client={wagmiClient}>
