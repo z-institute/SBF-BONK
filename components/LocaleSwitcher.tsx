@@ -6,9 +6,9 @@ import { Box } from "@chakra-ui/react";
 
 export default function LocaleSwitcher() {
   const t = useTranslations("LocaleSwitcher");
-
+  const router = useRouter();
   const { locale, locales, route } = useRouter();
-  const otherLocale = locales?.find((cur) => cur !== locale);
+  const otherLocale = locale === "en" ? "zh" : "en";
 
   return (
     <Box
