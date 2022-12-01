@@ -96,6 +96,9 @@ const Home: NextPage = () => {
         maxW="2000px"
         overflow="hidden"
         mt={isMobile ? "-50%" : 0}
+        left={isMobile ? "-6%" : "0"}
+        w={isMobile ? "150%" : "100%"}
+        position={isMobile ? "absolute" : "unset"}
         centerContent
       >
         <Box
@@ -110,7 +113,7 @@ const Home: NextPage = () => {
           <Text
             className={styles["logo"]}
             data-stroke="CYBERBONK"
-            fontSize={isMobile ? "60px" : "90px"}
+            fontSize={isMobile ? "80px" : "90px"}
             _before={
               isMobile
                 ? { textShadow: "none" }
@@ -186,19 +189,23 @@ const Home: NextPage = () => {
             </Box>
           </Box>
           {/* decentralization of power ! */}
-          <Box>
-            <Box className={classNames(styles["que10"], styles["que"])} p={5}>
-              <Image src={Question.src} alt="" />
+          {!isMobile && (
+            <Box>
+              <Box className={classNames(styles["que10"], styles["que"])} p={5}>
+                <Image src={Question.src} alt="" />
+              </Box>
+              <Box
+                className={classNames(styles["que10Text"], styles["queText"])}
+              >
+                <Text className={styles["queText__en"]}>
+                  Decentralization of power
+                </Text>
+                <Text className={styles["queText__tw"]}>
+                  {t("decentralizationDescription")}
+                </Text>
+              </Box>
             </Box>
-            <Box className={classNames(styles["que10Text"], styles["queText"])}>
-              <Text className={styles["queText__en"]}>
-                Decentralization of power
-              </Text>
-              <Text className={styles["queText__tw"]}>
-                {t("decentralizationDescription")}
-              </Text>
-            </Box>
-          </Box>
+          )}
 
           {/* images */}
           <Image
@@ -333,17 +340,17 @@ const Home: NextPage = () => {
             <Stack
               position="absolute"
               fontSize="20px"
-              top="36%"
+              bottom="7%"
               left="50%"
               transform="translateX(-50%)"
-              color="#ffffff"
+              color="#9FCAD3"
             >
               <Text align="center">Click to BONK</Text>
               <Text align="center">*Use PC to full experience</Text>
             </Stack>
           )}
           <UnorderedList
-            color={"white"}
+            color={"#9FCAD3"}
             position="absolute"
             bottom="50px"
             left="10%"
