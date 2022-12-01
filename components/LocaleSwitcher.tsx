@@ -1,4 +1,3 @@
-import styles from "../styles/Home.module.css";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { useRouter } from "next/router";

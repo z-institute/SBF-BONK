@@ -131,7 +131,7 @@ const Home: NextPage = () => {
               <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que5Text"], styles["queText"])}>
-              <Text className={styles["queText__en"]}>{t("risk")}</Text>
+              <Text className={styles["queText__en"]}>Risk spreading !</Text>
               <Text className={styles["queText__tw"]}>
                 {t("riskDescription")}
               </Text>
@@ -143,19 +143,19 @@ const Home: NextPage = () => {
               <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que6Text"], styles["queText"])}>
-              <Text className={styles["queText__en"]}>{t("key")}</Text>
+              <Text className={styles["queText__en"]}>Key management !</Text>
               <Text className={styles["queText__tw"]}>
                 {t("keyDescription")}
               </Text>
             </Box>
           </Box>
-          {/* Management ! */}
+          {/* transparency ! */}
           <Box>
             <Box className={classNames(styles["que7"], styles["que"])} p={5}>
               <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que7Text"], styles["queText"])}>
-              <Text className={styles["queText__en"]}>{t("transparency")}</Text>
+              <Text className={styles["queText__en"]}>Transparency !</Text>
               <Text className={styles["queText__tw"]}>
                 {t("transparencyDescription")}
               </Text>
@@ -167,7 +167,7 @@ const Home: NextPage = () => {
               <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que8Text"], styles["queText"])}>
-              <Text className={styles["queText__en"]}>{t("asset")}</Text>
+              <Text className={styles["queText__en"]}>Asset management !</Text>
               <Text className={styles["queText__tw"]}>
                 {t("assetDescription")}
               </Text>
@@ -179,7 +179,7 @@ const Home: NextPage = () => {
               <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que9Text"], styles["queText"])}>
-              <Text className={styles["queText__en"]}>{t("Audit")}</Text>
+              <Text className={styles["queText__en"]}>Audit procedure !</Text>
               <Text className={styles["queText__tw"]}>
                 {t("AuditDescription")}
               </Text>
@@ -192,7 +192,7 @@ const Home: NextPage = () => {
             </Box>
             <Box className={classNames(styles["que10Text"], styles["queText"])}>
               <Text className={styles["queText__en"]}>
-                {t("decentralization")}
+                Decentralization of power
               </Text>
               <Text className={styles["queText__tw"]}>
                 {t("decentralizationDescription")}
