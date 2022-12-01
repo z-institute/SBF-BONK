@@ -1,0 +1,25 @@
+{
+  "Index": {
+
+    "slogan": "棒擊 1111 次後免費鑄造 NFT",
+    "risk": "分散風險！",
+    "riskDescription": "分散風險，雞蛋不要放在同個籃子裡",
+    "key": "私鑰管理！",
+    "keyDescription": "私鑰管理，擁有自己資產的私鑰控制權",
+    "transparency": "公開透明！",
+    "transparencyDescription": "透明化，資料放在公開的區塊鏈網路上",
+    "asset": "資產管理！",
+    "assetDescription": "資產管理，不可挪用用戶資產",
+    "decentralization": "權力的去中心化",
+    "decentralizationDescription": "防止中心化模式的權利濫用",
+    "click": "點擊螢幕Bonk",
+    "usePc": "*使用電腦感受完整體驗",
+    "viewBlock": "在區塊鏈平台上檢視",
+    "freeMint": "免費鑄造中...",
+    "error": "錯誤，每個錢包只能鑄造一次，或請再試一次",
+    "minted": "鑄造成功！"
+  },
+  "nav": {
+    "about": "關於我們"
+  }
+}

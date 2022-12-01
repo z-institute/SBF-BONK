@@ -10,7 +10,7 @@ import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
 import { publicProvider } from "wagmi/providers/public";
 import { ChakraProvider } from "@chakra-ui/react";
-
+import { NextIntlProvider } from "next-intl";
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
@@ -53,7 +53,9 @@ function MyApp({ Component, pageProps }: AppProps) {
             accentColor: "#169bb4",
           })}
         >
-          <Component {...pageProps} />
+          <NextIntlProvider messages={pageProps.messages}>
+            <Component {...pageProps} />
+          </NextIntlProvider>
         </RainbowKitProvider>
       </WagmiConfig>
     </ChakraProvider>

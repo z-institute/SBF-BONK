@@ -8,8 +8,28 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
+import { useTranslations } from "next-intl";
 
 const nav = () => {
+  // language hooks
+  const t = useTranslations("nav");
+
+  interface NavItem {
+    label: any;
+    href?: string;
+  }
+
+  const NAV_ITEMS: Array<NavItem> = [
+    {
+      label: `${t('about')}`,
+      href: "https://opensea.io/",
+    },
+    {
+      label: "OPENSEA",
+      href: "https://opensea.io/",
+    },
+  ];
+
   return (
     <Stack direction={"row"} spacing={4} className={styles["nav"]}>
       {NAV_ITEMS.map((navItem) => (
@@ -36,19 +56,3 @@ const nav = () => {
 };
 
 export default nav;
-
-interface NavItem {
-  label: string;
-  href?: string;
-}
-
-const NAV_ITEMS: Array<NavItem> = [
-  {
-    label: "ABOUT",
-    href: "https://opensea.io/",
-  },
-  {
-    label: "OPENSEA",
-    href: "https://opensea.io/",
-  },
-];

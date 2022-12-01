@@ -1,0 +1,25 @@
+{
+  "Index": {
+    "about": "About",
+    "slogan": "Bonk 1111 times to free mint NFT",
+    "risk": "Risk spreading !",
+    "riskDescription": "Risk diversification, don’t put all your eggs in one basket.",
+    "key": "Key management !",
+    "keyDescription": "Private key management, the private key of property control by yourself.",
+    "transparency": "Transparency !",
+    "transparencyDescription": "Transparent, the data is placed on the public blockchain network.",
+    "asset": "Property management !",
+    "assetDescription": "Asset management, user assets cannot be misappropriated.",
+    "decentralization": "Decentralization of power",
+    "decentralizationDescription": "Prevent the abuse of power in the centralized model.",
+    "click": "Click to BONK",
+    "usePc": "*Use PC to full experience",
+    "viewBlock": "View on block explorer",
+    "freeMint": "freeminting...",
+    "error": "error,can only mint one NFT per address or please try again.",
+    "minted": "minted!"
+  },
+  "nav": {
+    "about": "ABOUT"
+  }
+}

@@ -1,4 +1,4 @@
-import type { NextPage } from "next";
+import type { GetStaticPropsContext, NextPage } from "next";
 import styles from "../styles/Home.module.css";
 import Background from "../public/background.png";
 import Cz from "../public/cz.png";
@@ -17,10 +17,14 @@ import {
   Button,
   Stack,
   Image,
-  Link
+  Link,
 } from "@chakra-ui/react";
+import { useTranslations } from "next-intl";
+
 
 const Home: NextPage = () => {
+  // language hooks
+  const t = useTranslations('Index');
   // index page content
   const czActive = useRef<HTMLImageElement>(null);
   const SbfActive = useRef<HTMLImageElement>(null);
@@ -107,10 +111,7 @@ const Home: NextPage = () => {
           <Text className={styles["logo"]} data-stroke="CYBERBONK">
             CYBERBONK
           </Text>
-          <Text className={styles["slogan"]}>
-            BONK 1111 times to free mint NFT
-          </Text>
-
+          <Text className={styles["slogan"]}>{t("slogan")}</Text>
           {/* -----↓↓↓↓ warnings ↓↓↓↓-----  */}
           {/* Risk spreading */}
           <Box>
@@ -118,9 +119,9 @@ const Home: NextPage = () => {
               <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que5Text"], styles["queText"])}>
-              <Text className={styles["queText__en"]}>Risk spreading !</Text>
+              <Text className={styles["queText__en"]}>{t("risk")}</Text>
               <Text className={styles["queText__tw"]}>
-                分散風險，雞蛋不要放在同個籃子裡
+                {t("riskDescription")}
               </Text>
             </Box>
           </Box>
@@ -130,9 +131,9 @@ const Home: NextPage = () => {
               <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que6Text"], styles["queText"])}>
-              <Text className={styles["queText__en"]}>Key management !</Text>
+              <Text className={styles["queText__en"]}>{t("key")}</Text>
               <Text className={styles["queText__tw"]}>
-                私鑰管理，擁有自己資產的私鑰控制權
+                {t("keyDescription")}
               </Text>
             </Box>
           </Box>
@@ -142,9 +143,9 @@ const Home: NextPage = () => {
               <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que7Text"], styles["queText"])}>
-              <Text className={styles["queText__en"]}>Transparency !</Text>
+              <Text className={styles["queText__en"]}>{t("transparency")}</Text>
               <Text className={styles["queText__tw"]}>
-                透明化，資料放在公開的區塊鏈網路上
+                {t("transparencyDescription")}
               </Text>
             </Box>
           </Box>
@@ -154,9 +155,9 @@ const Home: NextPage = () => {
               <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que8Text"], styles["queText"])}>
-              <Text className={styles["queText__en"]}>Management !</Text>
+              <Text className={styles["queText__en"]}>{t("asset")}</Text>
               <Text className={styles["queText__tw"]}>
-                資產管理，不可挪用用戶資產
+                {t("assetDescription")}
               </Text>
             </Box>
           </Box>
@@ -166,15 +167,22 @@ const Home: NextPage = () => {
               <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que9Text"], styles["queText"])}>
-              <Text className={styles["queText__en"]}>Audit procedure !</Text>
+              <Text className={styles["queText__en"]}>
+                {t("decentralization")}
+              </Text>
               <Text className={styles["queText__tw"]}>
-                受獨立的第三方審計與監督
+                {t("decentralizationDescription")}
               </Text>
             </Box>
           </Box>
 
           {/* images */}
-          <Image src={Cz.src} alt="CZ" className={styles["cz"]} ref={czActive} />
+          <Image
+            src={Cz.src}
+            alt="CZ"
+            className={styles["cz"]}
+            ref={czActive}
+          />
           <Image
             src={Sbf.src}
             alt="SBF"
@@ -228,17 +236,17 @@ const Home: NextPage = () => {
                     // 有連結錢包後才能執行 mint
                     try {
                       setIsLoading(true);
-                      setStatus("freeminting...");
+                      setStatus(`${t('freeMint')}`);
                       let freeMintTx = await freeMintAsync?.();
                       await freeMintTx?.wait();
-                      setStatus("minted!");
+                      setStatus(`${t("minted!")}`);
                       setLink(
                         `https://goerli.etherscan.io/tx/${freeMintTx?.hash}`
                       );
                       setCount(0);
                       setIsLoading(false);
                     } catch (error) {
-                      setStatus("Error, please try again");
+                      setStatus(`${t('error')}`);
                       setIsLoading(false);
                     }
                   }
@@ -276,7 +284,7 @@ const Home: NextPage = () => {
               textDecoration="underline"
             >
               <Link href={link} target="_blank">
-                View on block explorer
+                {t("viewBlock")}
               </Link>
             </Text>
           )}
@@ -304,8 +312,8 @@ const Home: NextPage = () => {
               transform="translateX(-50%)"
               color="#ffffff"
             >
-              <Text align="center">Click to BONK</Text>
-              <Text align="center">*Use PC to full experience</Text>
+              <Text align="center">{t("click")}</Text>
+              <Text align="center">{t("usePc")}</Text>
             </Stack>
           )}
         </Box>
@@ -315,3 +323,12 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+
+export async function getStaticProps({ locale }: GetStaticPropsContext) {
+  return {
+    props: {
+      messages: (await import(`../public/locales/${locale}.json`)).default,
+    },
+  };
+}
