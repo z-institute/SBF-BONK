@@ -12,12 +12,13 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import {
   Container,
   Box,
-  useToast,
   Text,
   Button,
   Stack,
   Image,
-  Link
+  Link,
+  ListItem,
+  UnorderedList,
 } from "@chakra-ui/react";
 
 const Home: NextPage = () => {
@@ -33,8 +34,8 @@ const Home: NextPage = () => {
   );
 
   // Mint
-  const [amount, setAmount] = useState(1);
-  const { freeMintAsync, isConnected } = useNFTMint(amount);
+
+  const { freeMintAsync, isConnected } = useNFTMint();
   const [status, setStatus] = useState("打擊成功！");
   const [link, setLink] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -174,7 +175,12 @@ const Home: NextPage = () => {
           </Box>
 
           {/* images */}
-          <Image src={Cz.src} alt="CZ" className={styles["cz"]} ref={czActive} />
+          <Image
+            src={Cz.src}
+            alt="CZ"
+            className={styles["cz"]}
+            ref={czActive}
+          />
           <Image
             src={Sbf.src}
             alt="SBF"
