@@ -8,6 +8,7 @@
   text-align: center;
 }
 .queText__tw {
+  font-family: 'Noto Sans TC', sans-serif;
   font-size: 12px;
   font-weight: 700;
   line-height: 14px;
@@ -58,7 +59,7 @@
   animation-delay: 1s;
 }
 .que6Text {
-  left: 324px;
+  left: 260px;
   top: 570px;
 }
 
@@ -90,21 +91,26 @@
   left: 1375px;
   top: 300px;
 }
+.que10 {
+  left: calc(1258px - 20px - 50px);
+  top: calc(198px - 20px + 280px);
+  animation-delay: 2s;
+}
+
+.que10Text {
+  left: 1000px;
+  top: 410px;
+}
 
 .logo {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   top: calc(40px + 180px);
-
   font-family: "Kavoon";
   font-style: normal;
   font-weight: 400;
-  font-size: 90px;
   line-height: 112px;
-
-  /* text-align: center; */
-
   color: #fcba10;
   z-index: 1;
 }
@@ -115,7 +121,6 @@
   top: 0;
   z-index: -1;
   -webkit-text-stroke: 18px #ffffff;
-  text-shadow: 0px 11px 25px rgba(0, 0, 0, 1);
 }
 .slogan {
   position: absolute;
@@ -185,4 +190,10 @@
 .nav > div:nth-child(4) {
   align-items: center;
   margin-left: 10px;
+}
+
+.switch {
+  font-size: 20px;
+  font-weight: 400;
+  color: #ffffff;
 }

@@ -1,6 +1,5 @@
 {
   "Index": {
-
     "slogan": "棒擊 1111 次後免費鑄造 NFT",
     "risk": "分散風險！",
     "riskDescription": "分散風險，雞蛋不要放在同個籃子裡",
@@ -10,6 +9,8 @@
     "transparencyDescription": "透明化，資料放在公開的區塊鏈網路上",
     "asset": "資產管理！",
     "assetDescription": "資產管理，不可挪用用戶資產",
+    "Audit": "第三分審計",
+    "AuditDescription": "接受獨立的第三方審計與監督",
     "decentralization": "權力的去中心化",
     "decentralizationDescription": "防止中心化模式的權利濫用",
     "click": "點擊螢幕Bonk",
@@ -21,5 +22,8 @@
   },
   "nav": {
     "about": "關於我們"
+  },
+  "LocaleSwitcher": {
+    "switchLocale": "{locale, select, zh {中文} en {English} other {Unknown}}"
   }
 }

@@ -8,12 +8,9 @@ import {
   Spacer,
 } from "@chakra-ui/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
-import { useTranslations } from "next-intl";
+import LocaleSwitcher from "./LocaleSwitcher"
 
 const nav = () => {
-  // language hooks
-  const t = useTranslations("nav");
-
   interface NavItem {
     label: any;
     href?: string;
@@ -21,13 +18,14 @@ const nav = () => {
 
   const NAV_ITEMS: Array<NavItem> = [
     {
-      label: `${t('about')}`,
+      label: "ABOUT",
       href: "https://opensea.io/",
     },
     {
       label: "OPENSEA",
       href: "https://opensea.io/",
     },
+
   ];
 
   return (
@@ -44,6 +42,7 @@ const nav = () => {
           </Link>
         </Box>
       ))}
+      <LocaleSwitcher />
       <Spacer />
       <ConnectButton
         accountStatus="address"

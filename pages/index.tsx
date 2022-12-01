@@ -8,43 +8,41 @@ import Nav from "../components/Nav";
 import classNames from "classnames";
 import { useRef, useEffect, useState } from "react";
 import useNFTMint from "../hooks/useNFTMint";
-import useMediaQuery from "../hooks/useMediaQuery";
 import {
   Container,
   Box,
-  useToast,
   Text,
   Button,
   Stack,
+  useMediaQuery,
   Image,
   Link,
+  UnorderedList,
+  ListItem,
 } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 
-
 const Home: NextPage = () => {
   // language hooks
-  const t = useTranslations('Index');
+  const t = useTranslations("Index");
   // index page content
   const czActive = useRef<HTMLImageElement>(null);
   const SbfActive = useRef<HTMLImageElement>(null);
   const BatActive = useRef<HTMLImageElement>(null);
   const BonkRef = useRef<HTMLButtonElement>(null);
   const [count, setCount] = useState(0);
-  const isDesktop = useMediaQuery("(min-width: 1000px)");
+  const [isMobile] = useMediaQuery("(max-width: 768px)");
   const musicPlayers = useRef<HTMLAudioElement | undefined>(
     typeof Audio !== "undefined" ? new Audio("/bonk.m4a") : undefined
   );
-
   // Mint
-  const [amount, setAmount] = useState(1);
-  const { freeMintAsync, isConnected } = useNFTMint(amount);
-  const [status, setStatus] = useState("打擊成功！");
+
+  const { freeMintAsync, isConnected } = useNFTMint();
+  const [status, setStatus] = useState("done!");
   const [link, setLink] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = () => {
-    musicPlayers.current?.play();
     if (count < 10) {
       setCount(count + 1);
     }
@@ -52,6 +50,7 @@ const Home: NextPage = () => {
 
   // Desktop - click func
   function mouseDown() {
+    musicPlayers.current?.play();
     if (czActive.current) {
       czActive.current.style.transform = "rotate(5.81deg)";
     }
@@ -86,17 +85,17 @@ const Home: NextPage = () => {
   }
 
   // mobile - click on screen
-  if (typeof window !== "undefined" && !isDesktop) {
-    document.body.addEventListener("mouseDown", mouseDown, true);
-    document.body.addEventListener("mouseUp", mouseUp, true);
+  if (typeof window !== "undefined" && isMobile) {
+    document.body.addEventListener("touchstart", mouseDown, true);
+    document.body.addEventListener("touchend", mouseUp, true);
   }
 
   return (
     <>
       <Container
         maxW="2000px"
-        overflowX={isDesktop ? "scroll" : "hidden"}
-        overflowY="hidden"
+        overflow="hidden"
+        mt={isMobile ? "-50%" : 0}
         centerContent
       >
         <Box
@@ -108,10 +107,23 @@ const Home: NextPage = () => {
           pos="relative"
         >
           <Nav></Nav>
-          <Text className={styles["logo"]} data-stroke="CYBERBONK">
+          <Text
+            className={styles["logo"]}
+            data-stroke="CYBERBONK"
+            fontSize={isMobile ? "60px" : "90px"}
+            _before={
+              isMobile
+                ? { textShadow: "none" }
+                : {
+                    textShadow: "0px 11px 25px rgba(0, 0, 0, 1)",
+                  }
+            }
+          >
             CYBERBONK
           </Text>
-          <Text className={styles["slogan"]}>{t("slogan")}</Text>
+          <Text className={styles["slogan"]}>
+            Bonk 1111 times to free mint NFT
+          </Text>
           {/* -----↓↓↓↓ warnings ↓↓↓↓-----  */}
           {/* Risk spreading */}
           <Box>
@@ -167,6 +179,18 @@ const Home: NextPage = () => {
               <Image src={Question.src} alt="" />
             </Box>
             <Box className={classNames(styles["que9Text"], styles["queText"])}>
+              <Text className={styles["queText__en"]}>{t("Audit")}</Text>
+              <Text className={styles["queText__tw"]}>
+                {t("AuditDescription")}
+              </Text>
+            </Box>
+          </Box>
+          {/* decentralization of power ! */}
+          <Box>
+            <Box className={classNames(styles["que10"], styles["que"])} p={5}>
+              <Image src={Question.src} alt="" />
+            </Box>
+            <Box className={classNames(styles["que10Text"], styles["queText"])}>
               <Text className={styles["queText__en"]}>
                 {t("decentralization")}
               </Text>
@@ -192,7 +216,7 @@ const Home: NextPage = () => {
           <Box className={styles["batWrapper"]} ref={BatActive} />
 
           {/* BONK BUTTON */}
-          {!isDesktop ||
+          {isMobile ||
             (count < 10 && (
               <Button
                 w="200px"
@@ -215,7 +239,7 @@ const Home: NextPage = () => {
             ))}
 
           {/* Mint Button */}
-          {!isDesktop ||
+          {isMobile ||
             (count >= 10 && (
               <Button
                 as="a"
@@ -236,17 +260,19 @@ const Home: NextPage = () => {
                     // 有連結錢包後才能執行 mint
                     try {
                       setIsLoading(true);
-                      setStatus(`${t('freeMint')}`);
+                      setStatus("Freeminting...");
                       let freeMintTx = await freeMintAsync?.();
                       await freeMintTx?.wait();
-                      setStatus(`${t("minted!")}`);
+                      setStatus("Minted!");
                       setLink(
                         `https://goerli.etherscan.io/tx/${freeMintTx?.hash}`
                       );
                       setCount(0);
                       setIsLoading(false);
                     } catch (error) {
-                      setStatus(`${t('error')}`);
+                      setStatus(
+                        "Error,can only mint one NFT per address or please try again."
+                      );
                       setIsLoading(false);
                     }
                   }
@@ -257,7 +283,7 @@ const Home: NextPage = () => {
             ))}
 
           {/* Transaction Status */}
-          {!isDesktop ||
+          {isMobile ||
             (count >= 10 && (
               <Text
                 position="absolute"
@@ -284,13 +310,13 @@ const Home: NextPage = () => {
               textDecoration="underline"
             >
               <Link href={link} target="_blank">
-                {t("viewBlock")}
+                View on block explorer
               </Link>
             </Text>
           )}
 
           {/* Mobile - instruction text */}
-          {isDesktop ? (
+          {!isMobile ? (
             count < 10 && (
               <Text
                 position="absolute"
@@ -307,15 +333,28 @@ const Home: NextPage = () => {
             <Stack
               position="absolute"
               fontSize="20px"
-              bottom="20px"
+              top="36%"
               left="50%"
               transform="translateX(-50%)"
               color="#ffffff"
             >
-              <Text align="center">{t("click")}</Text>
-              <Text align="center">{t("usePc")}</Text>
+              <Text align="center">Click to BONK</Text>
+              <Text align="center">*Use PC to full experience</Text>
             </Stack>
           )}
+          <UnorderedList
+            color={"white"}
+            position="absolute"
+            bottom="50px"
+            left="10%"
+            listStyleType={"none"}
+          >
+            Contract | Tina Lee Front-end | Siling Wang, Chou Yi Tao ART & UI |
+            pupupupuisland
+            <ListItem>Contract | Tina Lee</ListItem>
+            <ListItem>Front-end | Siling Wang, Chou Yi Tao</ListItem>
+            <ListItem>ART & UI | pupupupuisland</ListItem>
+          </UnorderedList>
         </Box>
       </Container>
     </>
@@ -323,7 +362,6 @@ const Home: NextPage = () => {
 };
 
 export default Home;
-
 
 export async function getStaticProps({ locale }: GetStaticPropsContext) {
   return {
