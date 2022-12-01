@@ -96,15 +96,10 @@
   left: 50%;
   transform: translateX(-50%);
   top: calc(40px + 180px);
-
   font-family: "Kavoon";
   font-style: normal;
   font-weight: 400;
-  font-size: 90px;
   line-height: 112px;
-
-  /* text-align: center; */
-
   color: #fcba10;
   z-index: 1;
 }
