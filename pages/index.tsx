@@ -6,7 +6,7 @@ import Sbf from "../public/sbf.png";
 import Question from "../public/question.png";
 import Nav from "../components/Nav";
 import classNames from "classnames";
-import { useRef, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import useNFTMint from "../hooks/useNFTMint";
 import { Howl } from "howler";
 import {
@@ -50,6 +50,16 @@ const Home: NextPage = () => {
     src: ["/bonk.m4a"],
     html5: true,
   });
+
+  const [isH, setIsH] = useState(false);
+  const [height, setHeight] = useState(
+    typeof window === "undefined" ? 0 : window.innerHeight
+  );
+  useEffect(() => {
+    if (height >= 1094) {
+      setIsH(true);
+    }
+  }, []);
 
   // Desktop - click func
   function mouseDown() {
@@ -102,9 +112,10 @@ const Home: NextPage = () => {
         mt={isMobile ? "-50%" : 0}
         left={isMobile ? "-6%" : "0"}
         w={isMobile ? "150%" : "100%"}
-        position={isMobile ? "absolute" : "unset"}
+        position={isMobile ? "absolute" : "relative"}
         centerContent
       >
+        <Nav />
         <Box
           bgImage={`url(${Background.src})`}
           w="1944px"
@@ -112,8 +123,8 @@ const Home: NextPage = () => {
           backgroundPosition="center"
           backgroundRepeat="no-repeat"
           pos="relative"
+          mt={"-70px"}
         >
-          <Nav></Nav>
           <Text
             className={styles["logo"]}
             data-stroke="CYBERBONK"
@@ -243,6 +254,11 @@ const Home: NextPage = () => {
                 zIndex="10"
                 onClick={handleClick}
                 isLoading={isLoading}
+                top={
+                  isH
+                    ? "calc(100vh - (100vh - 1094px) - 137px)"
+                    : "calc(100vh - 137px)"
+                }
                 _hover={{ color: "#ffffff", backgroundColor: "#07839E" }}
               >
                 BONK
@@ -261,6 +277,11 @@ const Home: NextPage = () => {
                 color="#07839E"
                 borderRadius="38.5px"
                 className={styles["bonkButton"]}
+                top={
+                  isH
+                    ? "calc(100vh - (100vh - 1094px) - 137px)"
+                    : "calc(100vh - 137px)"
+                }
                 zIndex="10"
                 isLoading={isLoading}
                 onClick={async () => {
@@ -332,7 +353,11 @@ const Home: NextPage = () => {
               <Text
                 position="absolute"
                 fontSize="30px"
-                top="1020px"
+                top={
+                  isH
+                    ? "calc(100vh - (100vh - 1094px) - 74px)"
+                    : "calc(100vh - 74px)"
+                }
                 left="50%"
                 transform="translateX(-50%)"
                 color="#ffffff"
@@ -353,20 +378,24 @@ const Home: NextPage = () => {
               <Text align="center">*Use PC to full experience</Text>
             </Stack>
           )}
-          <UnorderedList
-            color={"#9FCAD3"}
-            position="absolute"
-            bottom="50px"
-            left="10%"
-            listStyleType={"none"}
-          >
-            Contract | Tina Lee Front-end | Siling Wang, Chou Yi Tao ART & UI |
-            pupupupuisland
-            <ListItem>Contract | Tina Lee</ListItem>
-            <ListItem>Front-end | Siling Wang, Chou Yi Tao</ListItem>
-            <ListItem>ART & UI | pupupupuisland</ListItem>
-          </UnorderedList>
         </Box>
+        <UnorderedList
+          color={"#9FCAD3"}
+          position="absolute"
+          top={
+            isH
+              ? "calc(100vh - (100vh - 1094px) - 110px)"
+              : "calc(100vh - 110px)"
+          }
+          left="20px"
+          listStyleType={"none"}
+        >
+          Contract | Tina Lee Front-end | Siling Wang, Chou Yi Tao ART & UI |
+          pupupupuisland
+          <ListItem>Contract | Tina Lee</ListItem>
+          <ListItem>Front-end | Siling Wang, Chou Yi Tao</ListItem>
+          <ListItem>ART & UI | pupupupuisland</ListItem>
+        </UnorderedList>
       </Container>
     </>
   );

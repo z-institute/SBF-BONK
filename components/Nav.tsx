@@ -21,7 +21,13 @@ const nav = () => {
   ];
 
   return (
-    <Stack direction={"row"} spacing={4} className={styles["nav"]}>
+    <Stack
+      direction={"row"}
+      spacing={4}
+      className={styles["nav"]}
+      w="100%"
+      zIndex={"3"}
+    >
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label} p={5} _hover={{ transform: "scale(1.1)" }}>
           <Link
