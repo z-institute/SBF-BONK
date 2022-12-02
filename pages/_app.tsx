@@ -13,6 +13,7 @@ import { ChakraProvider } from "@chakra-ui/react";
 import { NextIntlProvider } from "next-intl";
 import { useEffect } from "react";
 import ReactGA from "react-ga";
+import Head from "next/head";
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
@@ -46,11 +47,15 @@ const wagmiClient = createClient({
 
 function MyApp({ Component, pageProps }: any) {
   useEffect(() => {
-  if(process.env.googleAnalyticsID && process.env.NODE_ENV === "production") { // Checks for GA ID and only turns on GA in production
-    ReactGA.initialize(process.env.googleAnalyticsID);
-    ReactGA.pageview(window.location.pathname + window.location.search);
-  }
-});
+    if (
+      process.env.googleAnalyticsID &&
+      process.env.NODE_ENV === "production"
+    ) {
+      // Checks for GA ID and only turns on GA in production
+      ReactGA.initialize(process.env.googleAnalyticsID);
+      ReactGA.pageview(window.location.pathname + window.location.search);
+    }
+  });
   return (
     <ChakraProvider>
       <WagmiConfig client={wagmiClient}>
@@ -62,6 +67,9 @@ function MyApp({ Component, pageProps }: any) {
           })}
         >
           <NextIntlProvider messages={pageProps.messages}>
+            <Head>
+              <link rel="icon" type="image/jpg" href="/favicon.ico" />
+            </Head>
             <Component {...pageProps} />
           </NextIntlProvider>
         </RainbowKitProvider>
