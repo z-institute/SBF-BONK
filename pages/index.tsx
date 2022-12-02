@@ -6,8 +6,9 @@ import Sbf from "../public/sbf.png";
 import Question from "../public/question.png";
 import Nav from "../components/Nav";
 import classNames from "classnames";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import useNFTMint from "../hooks/useNFTMint";
+import { Howl } from "howler";
 import {
   Container,
   Box,
@@ -32,11 +33,8 @@ const Home: NextPage = () => {
   const BonkRef = useRef<HTMLButtonElement>(null);
   const [count, setCount] = useState(0);
   const [isMobile] = useMediaQuery("(max-width: 768px)");
-  const musicPlayers = useRef<HTMLAudioElement | undefined>(
-    typeof Audio !== "undefined" ? new Audio("/bonk.m4a") : undefined
-  );
-  // Mint
 
+  // Mint
   const { freeMintAsync, isConnected } = useNFTMint();
   const [status, setStatus] = useState("done!");
   const [link, setLink] = useState("");
@@ -47,10 +45,14 @@ const Home: NextPage = () => {
       setCount(count + 1);
     }
   };
+  const sound = new Howl({
+    src: ["/bonk.m4a"],
+    html5: true,
+  });
 
   // Desktop - click func
   function mouseDown() {
-    musicPlayers.current?.play();
+    sound.play();
     if (czActive.current) {
       czActive.current.style.transform = "rotate(5.81deg)";
     }
@@ -68,6 +70,7 @@ const Home: NextPage = () => {
   }
 
   function mouseUp() {
+    sound.stop();
     if (czActive.current) {
       czActive.current.style.transform = "rotate(0deg)";
     }
