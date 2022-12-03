@@ -14,6 +14,7 @@ html {
 }
 
 body {
+  overflow: hidden;
   position: relative;
   box-sizing: border-box;
   margin: 0;

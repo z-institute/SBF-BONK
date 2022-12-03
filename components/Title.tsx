@@ -11,7 +11,7 @@ const Title: React.FC<Props> = ({ isMobile }) => {
       <Text
         className={styles["logo"]}
         data-stroke="CYBERBONK"
-        fontSize={isMobile ? "80px" : "90px"}
+        fontSize={isMobile ? "60px" : "90px"}
         _before={
           isMobile
             ? { textShadow: "none" }
@@ -19,6 +19,8 @@ const Title: React.FC<Props> = ({ isMobile }) => {
                 textShadow: "0px 11px 25px rgba(0, 0, 0, 1)",
               }
         }
+        left={"50%"}
+        transform={"translateX(-50%)"}
       >
         CYBERBONK
       </Text>

@@ -5,6 +5,7 @@ interface Props {
   isMobile: boolean;
 }
 const MobileInstru: React.FC<Props> = ({ count, isHeigher, isMobile }) => {
+  console.log(isHeigher);
   return (
     <>
       {!isMobile ? (
@@ -28,7 +29,7 @@ const MobileInstru: React.FC<Props> = ({ count, isHeigher, isMobile }) => {
         <Stack
           position="absolute"
           fontSize="20px"
-          bottom="7%"
+          top="calc( 100vh + 68px)"
           left="50%"
           transform="translateX(-50%)"
           color="#9FCAD3"

@@ -32,7 +32,13 @@ const Home: NextPage = () => {
   const bonkRef = useRef<HTMLButtonElement>(null);
   const [count, setCount] = useState(0);
   const [isMobile] = useMediaQuery("(max-width: 768px)");
-  const { mouseDown, mouseUp } = useMouseEvent(czRef, sbfRef, batRef, bonkRef);
+  const { mouseDown, mouseUp } = useMouseEvent(
+    czRef,
+    sbfRef,
+    batRef,
+    bonkRef,
+    isMobile
+  );
 
   // Mint
   const { freeMintAsync, isConnected } = useNFTMint();

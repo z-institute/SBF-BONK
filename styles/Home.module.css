@@ -104,8 +104,6 @@
 
 .logo {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   top: calc(40px + 180px);
   font-family: "Kavoon";
   font-style: normal;
@@ -124,9 +122,8 @@
 }
 .slogan {
   position: absolute;
-  /* width: 314px; */
-  /* height: 30px; */
-  left: calc(50% - 314px / 2);
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 717px;
 
   font-family: "Kavoon";
@@ -149,6 +146,7 @@
 
 .sbf {
   position: absolute;
+
   width: 302px;
   height: 304px;
   left: calc(50% - 302px / 2 + 163px);
@@ -157,6 +155,11 @@
 }
 .batWrapper {
   position: absolute;
+
+  z-index: 2;
+  transform-origin: center;
+  background-image: url("/bat.png");
+
   width: 815px;
   height: 814px;
   top: calc(182px + 191px);
@@ -186,11 +189,40 @@
 }
 .nav > div:nth-child(5) {
   align-items: center;
-  margin-left: 10px;
+  margin: 0 10px;
 }
 
 .switch {
   font-size: 20px;
   font-weight: 400;
   color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .cz {
+    width: calc(299px * 0.7);
+    height: calc(298px * 0.7);
+    left: calc(50% - 299px * 0.7 / 2 - 121px);
+    top: calc(50% - 298px * 0.7 / 2 - 47px + 75px);
+  }
+  .sbf {
+    width: calc(302px * 0.7);
+    height: calc(302px * 0.7);
+    left: calc(50% - 302px * 0.7 / 2 + 121px);
+    top: calc(50% - 304px * 0.7 / 2 - 7px + 70px);
+  }
+  .batWrapper {
+    width: calc(815px * 0.7);
+    height: calc(814px * 0.7);
+    top: calc(182px + 247px);
+    left: calc(240px + 399px);
+    background-position: -124px -124px;
+    background-size: 815px;
+  }
+  .logo {
+    top: 250px;
+  }
+  .slogan {
+    top: 362px;
+  }
 }

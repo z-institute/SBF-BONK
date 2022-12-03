@@ -6,17 +6,19 @@ const sound = new Howl({
   html5: true,
 });
 
-const useMouseEvent = (czRef, sbfRef, batRef, bonkRef) => {
+const useMouseEvent = (czRef, sbfRef, batRef, bonkRef, isMobile) => {
   // Desktop - click func
   function mouseDown() {
     sound.play();
     if (czRef.current) {
       czRef.current.style.transform = "rotate(5.81deg)";
     }
-    if (sbfRef.current) {
+    if (sbfRef.current && isMobile) {
+      sbfRef.current.style.height = "100px";
+      sbfRef.current.style.top = "614px";
+    } else {
       sbfRef.current.style.height = "148px";
       sbfRef.current.style.top = "642px";
-      console.log(sbfRef.current.style);
     }
     if (batRef.current) {
       batRef.current.style.transform = "rotate(80deg)";
@@ -32,7 +34,10 @@ const useMouseEvent = (czRef, sbfRef, batRef, bonkRef) => {
     if (czRef.current) {
       czRef.current.style.transform = "rotate(0deg)";
     }
-    if (sbfRef.current) {
+    if (sbfRef.current && isMobile == true) {
+      sbfRef.current.style.height = "211.39px";
+      sbfRef.current.style.top = "503px";
+    } else {
       sbfRef.current.style.height = "304px";
       sbfRef.current.style.top = "482px";
     }
