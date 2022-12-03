@@ -22,6 +22,7 @@ import {
   ListItem,
 } from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
+import ReactGA from "react-ga";
 
 const Home: NextPage = () => {
   // language hooks
