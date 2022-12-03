@@ -14,6 +14,8 @@ import { NextIntlProvider } from "next-intl";
 import { useEffect } from "react";
 import ReactGA from "react-ga";
 import Head from "next/head";
+import { GoogleTagManager } from "../components/GoogleTagManager";
+import { GOOGLE_TAG_MANAGER_ID } from "../libs/googleTagManager";
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
@@ -70,6 +72,7 @@ function MyApp({ Component, pageProps }: any) {
             <Head>
               <link rel="icon" type="image/jpg" href="/favicon.ico" />
             </Head>
+            <GoogleTagManager />
             <Component {...pageProps} />
           </NextIntlProvider>
         </RainbowKitProvider>
