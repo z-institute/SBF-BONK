@@ -73,9 +73,8 @@ function MyApp({ Component, pageProps, router }: any) {
             <Head>
               <link rel="icon" type="image/jpg" href="/favicon.ico" />
             </Head>
-            <GoogleTagManager />
+            <GoogleTagManager containerId={GOOGLE_TAG_MANAGER_ID} />
             <Component {...pageProps} />
-
           </NextIntlProvider>
         </RainbowKitProvider>
       </WagmiConfig>
