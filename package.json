@@ -13,6 +13,7 @@
     "@chakra-ui/react": "^2.4.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
+    "@google-analytics/data": "^3.1.1",
     "@nomiclabs/hardhat-etherscan": "^3.1.2",
     "@openzeppelin/contracts": "^4.8.0",
     "@rainbow-me/rainbowkit": "^0.8.0",

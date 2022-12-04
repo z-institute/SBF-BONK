@@ -20,7 +20,6 @@ import ComManagement from "../components/ComManagement";
 import ComAudit from "../components/ComAudit";
 import ComDecen from "../components/ComDecen";
 import useMouseEvent from "../hooks/useMouseEvent";
-import ReactGA from "react-ga";
 
 const Home: NextPage = () => {
   // language hooks

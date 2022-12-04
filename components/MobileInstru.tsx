@@ -5,7 +5,6 @@ interface Props {
   isMobile: boolean;
 }
 const MobileInstru: React.FC<Props> = ({ count, isHeigher, isMobile }) => {
-  console.log(isHeigher);
   return (
     <>
       {!isMobile ? (

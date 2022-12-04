@@ -1,0 +1,1 @@
+export const GOOGLE_APPLICATION_CREDENTIALS="./analyticsAPI-7d36a74bf458.json"

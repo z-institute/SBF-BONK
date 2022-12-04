@@ -16,6 +16,8 @@ import ReactGA from "react-ga";
 import Head from "next/head";
 import { GoogleTagManager } from "../components/GoogleTagManager";
 import { GOOGLE_TAG_MANAGER_ID } from "../libs/googleTagManager";
+import Script from "next/script";
+
 
 const { chains, provider, webSocketProvider } = configureChains(
   [
@@ -29,7 +31,7 @@ const { chains, provider, webSocketProvider } = configureChains(
     alchemyProvider({
       // This is Alchemy's default API key.
       // You can get your own at https://dashboard.alchemyapi.io
-      apiKey: "yourAlchemyApiKey",
+      apiKey: process.env.ALCHEMY_API_KEY,
     }),
     publicProvider(),
   ]
@@ -47,17 +49,16 @@ const wagmiClient = createClient({
   webSocketProvider,
 });
 
-function MyApp({ Component, pageProps }: any) {
+function MyApp({ Component, pageProps, router }: any) {
   useEffect(() => {
-    if (
-      process.env.googleAnalyticsID &&
-      process.env.NODE_ENV === "production"
-    ) {
-      // Checks for GA ID and only turns on GA in production
-      ReactGA.initialize(process.env.googleAnalyticsID);
-      ReactGA.pageview(window.location.pathname + window.location.search);
-    }
-  });
+    const handleRouteChange = (url) => {
+      pageview(url, document.title);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, []);
   return (
     <ChakraProvider>
       <WagmiConfig client={wagmiClient}>
@@ -74,6 +75,7 @@ function MyApp({ Component, pageProps }: any) {
             </Head>
             <GoogleTagManager />
             <Component {...pageProps} />
+
           </NextIntlProvider>
         </RainbowKitProvider>
       </WagmiConfig>
