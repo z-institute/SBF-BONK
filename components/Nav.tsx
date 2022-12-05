@@ -43,6 +43,7 @@ const nav: React.FC<Props> = ({ isHeigher }) => {
             fontWeight={400}
             color="#ffffff"
             _hover={{ textDecoration: "none" }}
+            target="_blank"
           >
             {navItem.label}
           </Link>
