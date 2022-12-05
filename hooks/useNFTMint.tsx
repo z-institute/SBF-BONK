@@ -1,5 +1,5 @@
 import { useAccount, useContractWrite } from "wagmi";
-import { NFTAddress } from "../constants";
+import { NFTAddress, password } from "../constants";
 import NFTAbi from "../abis/NFTAbi.json";
 
 const useNFTMint = () => {
@@ -10,7 +10,7 @@ const useNFTMint = () => {
     address: NFTAddress,
     abi: NFTAbi,
     functionName: "mint",
-    args: [process.env.PASSWORD],
+    args: [password],
   });
 
   return {
