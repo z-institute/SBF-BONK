@@ -27,7 +27,7 @@ const members: React.FC<Props> = ({ isHeigher, isMobile }) => {
           <ListItem>Front-end | Siling Wang, Chou Yi Tao</ListItem>
           <ListItem>ART & UI | pupupupuisland</ListItem>
           <ListItem>
-            <Link href={"https://github.com/"} isExternal>
+            <Link href={"https://github.com/z-institute/SBF-BONK"} isExternal>
               <FaGithub />
             </Link>
           </ListItem>
