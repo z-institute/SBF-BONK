@@ -61,6 +61,10 @@ function MyApp({ Component, pageProps, router }: any) {
           <NextIntlProvider messages={pageProps.messages}>
             <Head>
               <link rel="icon" type="image/jpg" href="/favicon.ico" />
+              <meta
+                name="google-site-verification"
+                content="sUA9QPeM91jiNUg2a-8pBG0cKMprEzZ2enAFn4pluro"
+              />
             </Head>
             {/* Google Tag Manager */}
             <Script>
@@ -84,14 +88,14 @@ function MyApp({ Component, pageProps, router }: any) {
               {`gtag('config', 'G-0JD61VES6C');`}
             </Script>
             <Component {...pageProps}>
-            <noscript>
-              <iframe
-                src="https://www.googletagmanager.com/ns.html?id=GTM-T97WGQH"
-                height="0"
-                width="0"
-                style={{ display: "none", visibility: "hidden" }}
-              ></iframe>
-            </noscript>
+              <noscript>
+                <iframe
+                  src="https://www.googletagmanager.com/ns.html?id=GTM-T97WGQH"
+                  height="0"
+                  width="0"
+                  style={{ display: "none", visibility: "hidden" }}
+                ></iframe>
+              </noscript>
             </Component>
             <Script src="https://apis.google.com/js/api.js" />
             {/* <Script src="/javascripts/screenPageViews.js" /> */}
