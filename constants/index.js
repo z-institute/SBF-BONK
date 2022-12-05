@@ -1,2 +1,2 @@
-export const NFTAddress = "0xffB1324Dd2A6A560463c881975415106716A2d2b";
+export const NFTAddress = "0x6ee9bC608e84BB9bF3e2184Cd3E2c85052a82187";
 export const password = "ToBonkOrNotToBonk"

@@ -20,6 +20,9 @@ import ComManagement from "../components/ComManagement";
 import ComAudit from "../components/ComAudit";
 import ComDecen from "../components/ComDecen";
 import useMouseEvent from "../hooks/useMouseEvent";
+import useSWR from "swr";
+
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 const Home: NextPage = () => {
   // language hooks
@@ -38,6 +41,10 @@ const Home: NextPage = () => {
     bonkRef,
     isMobile
   );
+
+  // analytics
+  // const data = useSWR("/api/cookies", fetcher);
+  // console.log(data)
 
   // Mint
   const { freeMintAsync, isConnected } = useNFTMint();
@@ -69,6 +76,14 @@ const Home: NextPage = () => {
 
   return (
     <>
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-T97WGQH"
+          height="0"
+          width="0"
+          style={{display:"none", visibility:"hidden"}}
+        ></iframe>
+      </noscript>
       <Container
         maxW="1440px"
         overflow="hidden"

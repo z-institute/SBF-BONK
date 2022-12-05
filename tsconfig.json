@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/api/runReport.ts", "pages/api/screenPageViews.ts", "public/javascripts/screenPageViews.js"],
   "exclude": ["node_modules"]
 }

@@ -10,7 +10,7 @@ const useNFTMint = () => {
     address: NFTAddress,
     abi: NFTAbi,
     functionName: "mint",
-    args: [password],
+    args: [process.env.PASSSWORD],
   });
 
   return {
