@@ -83,7 +83,16 @@ function MyApp({ Component, pageProps, router }: any) {
               {`gtag('js', new Date());`}
               {`gtag('config', 'G-0JD61VES6C');`}
             </Script>
-            <Component {...pageProps} />
+            <Component {...pageProps}>
+            <noscript>
+              <iframe
+                src="https://www.googletagmanager.com/ns.html?id=GTM-T97WGQH"
+                height="0"
+                width="0"
+                style={{ display: "none", visibility: "hidden" }}
+              ></iframe>
+            </noscript>
+            </Component>
             <Script src="https://apis.google.com/js/api.js" />
             {/* <Script src="/javascripts/screenPageViews.js" /> */}
           </NextIntlProvider>
