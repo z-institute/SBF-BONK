@@ -4,7 +4,7 @@ type Props = {
   containerId?: string;
 };
 
-const GoogleTagManager: FC<Props> = ({ containerId }) =>
+const GoogleTagManager: React.FC<Props> = ({ containerId }) =>
   containerId ? (
     <Script
       id="googleTagManager"

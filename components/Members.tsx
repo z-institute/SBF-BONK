@@ -16,7 +16,7 @@ const members: React.FC<Props> = ({ isHeigher, isMobile }) => {
           top={
             isHeigher
               ? "calc(100vh - (100vh - 1094px) - 110px)"
-              : "calc(100vh - 110px)"
+              : "calc(100vh - (100vh - 1094px) - 110px - 110px)"
           }
           left="20px"
           listStyleType={"none"}

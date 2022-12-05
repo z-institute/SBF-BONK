@@ -3,7 +3,11 @@ import { Box, Stack, Link, Spacer, scaleFadeConfig } from "@chakra-ui/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import LocaleSwitcher from "./LocaleSwitcher";
 
-const nav = () => {
+interface Props {
+  isHeigher: boolean;
+}
+
+const nav: React.FC<Props> = ({ isHeigher }) => {
   interface NavItem {
     label: any;
     href?: string;
@@ -27,6 +31,8 @@ const nav = () => {
       className={styles["nav"]}
       w="100%"
       zIndex={"3"}
+      pos={isHeigher ? "relative" : "absolute"}
+      top={isHeigher ? "0" : "110px"}
     >
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label} p={5} _hover={{ transform: "scale(1.1)" }}>
@@ -47,7 +53,7 @@ const nav = () => {
       <Spacer />
       <ConnectButton
         accountStatus="address"
-        chainStatus="none"
+        chainStatus="name"
         showBalance={false}
       />
       ;

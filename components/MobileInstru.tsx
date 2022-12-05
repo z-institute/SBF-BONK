@@ -8,14 +8,14 @@ const MobileInstru: React.FC<Props> = ({ count, isHeigher, isMobile }) => {
   return (
     <>
       {!isMobile ? (
-        count < 10 && (
+        count < 111 && (
           <Text
             position="absolute"
             fontSize="30px"
             top={
               isHeigher
                 ? "calc(100vh - (100vh - 1094px) - 74px)"
-                : "calc(100vh - 74px)"
+                : "calc(100vh -  (100vh - 1094px) - 26px - 74px)"
             }
             left="50%"
             transform="translateX(-50%)"

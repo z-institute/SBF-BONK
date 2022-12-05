@@ -61,8 +61,6 @@ const Home: NextPage = () => {
     }
   }, []);
 
-  console.log(height);
-
   // mobile - click on screen
   if (typeof window !== "undefined" && isMobile) {
     document.body.addEventListener("touchstart", mouseDown, true);
@@ -78,8 +76,9 @@ const Home: NextPage = () => {
         position={isMobile ? "relative" : "relative"}
         p={"0"}
         centerContent
+        mt={isH ? "0" : isMobile ? "0" : "-100px"}
       >
-        {!isMobile && <Nav />}
+        {!isMobile && <Nav isHeigher={isH} />}
         <Box
           bgImage={`url(${Background.src})`}
           w="1944px"
@@ -129,7 +128,7 @@ const Home: NextPage = () => {
                 top={
                   isH
                     ? "calc(100vh - (100vh - 1094px) - 137px)"
-                    : "calc(100vh - 137px)"
+                    : "calc(100vh - (100vh - 1094px) - 5px - 155px) "
                 }
                 _hover={{ color: "#ffffff", backgroundColor: "#07839E" }}
               >
@@ -151,7 +150,7 @@ const Home: NextPage = () => {
                 top={
                   isH
                     ? "calc(100vh - (100vh - 1094px) - 137px)"
-                    : "calc(100vh - 137px)"
+                    : "calc(100vh - (100vh - 1094px) - 5px - 155px) "
                 }
                 zIndex="10"
                 isLoading={isLoading}
