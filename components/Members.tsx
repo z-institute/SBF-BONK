@@ -1,6 +1,5 @@
-import { useRef, useEffect, useState } from "react";
-
-import { useMediaQuery, UnorderedList, ListItem } from "@chakra-ui/react";
+import { UnorderedList, ListItem, Link } from "@chakra-ui/react";
+import { FaGithub } from "react-icons/fa";
 
 interface Props {
   isHeigher: boolean;
@@ -27,6 +26,11 @@ const members: React.FC<Props> = ({ isHeigher, isMobile }) => {
           <ListItem>Contract | Tina Lee</ListItem>
           <ListItem>Front-end | Siling Wang, Chou Yi Tao</ListItem>
           <ListItem>ART & UI | pupupupuisland</ListItem>
+          <ListItem>
+            <Link href={"https://github.com/"} isExternal>
+              <FaGithub />
+            </Link>
+          </ListItem>
         </UnorderedList>
       )}
     </>

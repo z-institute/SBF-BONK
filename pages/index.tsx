@@ -46,7 +46,7 @@ const Home: NextPage = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = () => {
-    if (count < 10) {
+    if (count < 111) {
       setCount(count + 1);
     }
   };
@@ -111,7 +111,7 @@ const Home: NextPage = () => {
           <Box className={styles["batWrapper"]} ref={batRef} />
           {/* BONK BUTTON */}
           {isMobile ||
-            (count < 10 && (
+            (count < 111 && (
               <Button
                 w="200px"
                 height="50px"
@@ -138,7 +138,7 @@ const Home: NextPage = () => {
             ))}
           {/* Mint Button */}
           {isMobile ||
-            (count >= 10 && (
+            (count >= 111 && (
               <Button
                 as="a"
                 w="200px"
@@ -163,19 +163,15 @@ const Home: NextPage = () => {
                     // 有連結錢包後才能執行 mint
                     try {
                       setIsLoading(true);
-                      setStatus("Freeminting...");
+                      setStatus("Minting...");
                       let freeMintTx = await freeMintAsync?.();
                       await freeMintTx?.wait();
                       setStatus("Minted!");
-                      setLink(
-                        `https://goerli.etherscan.io/tx/${freeMintTx?.hash}`
-                      );
+                      setLink(`https://etherscan.io/tx/${freeMintTx?.hash}`);
                       setCount(0);
                       setIsLoading(false);
                     } catch (error) {
-                      setStatus(
-                        "Error,can only mint one NFT per address or please try again."
-                      );
+                      setStatus("Error, please try again.");
                       setIsLoading(false);
                     }
                   }

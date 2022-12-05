@@ -21,7 +21,7 @@ const MobileInstru: React.FC<Props> = ({ count, isHeigher, isMobile }) => {
             transform="translateX(-50%)"
             color="#ffffff"
           >
-            {count} / 1111
+            {count} / 111
           </Text>
         )
       ) : (
@@ -34,7 +34,7 @@ const MobileInstru: React.FC<Props> = ({ count, isHeigher, isMobile }) => {
           color="#9FCAD3"
         >
           <Text align="center">Click to BONK</Text>
-          <Text align="center">*Use PC to full experience</Text>
+          <Text align="center">*Use PC for full experience</Text>
         </Stack>
       )}
     </>

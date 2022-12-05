@@ -10,7 +10,7 @@ const TrxStatus: React.FC<Props> = ({ status, count, isMobile }) => {
   return (
     <>
       {isMobile ||
-        (count >= 10 && (
+        (count >= 111 && (
           <Text
             position="absolute"
             fontSize="24px"

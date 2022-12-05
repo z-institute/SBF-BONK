@@ -24,8 +24,7 @@ const Title: React.FC<Props> = ({ isMobile }) => {
       >
         CYBERBONK
       </Text>
-      <Text className={styles["slogan"]}>Bonk 1111 times to free mint NFT</Text>
-      ;
+      <Text className={styles["slogan"]}>Bonk 111 times to free mint NFT</Text>;
     </>
   );
 };
