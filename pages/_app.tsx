@@ -63,7 +63,7 @@ function MyApp({ Component, pageProps, router }: any) {
               <link rel="icon" type="image/jpg" href="/favicon.ico" />
               <meta
                 name="google-site-verification"
-                content="sUA9QPeM91jiNUg2a-8pBG0cKMprEzZ2enAFn4pluro"
+                content="G65CewReM3XHzCT__NPcpX9o6xAe27y-vNbivUq6ayQ"
               />
             </Head>
             {/* Google Tag Manager */}
