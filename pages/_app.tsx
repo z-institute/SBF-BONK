@@ -15,7 +15,6 @@ import { NextIntlProvider } from "next-intl";
 import { useEffect } from "react";
 import Head from "next/head";
 import Script from "next/script";
-import NoSSRWrapper from "../components/NoSSRWrapper";
 import React from "react";
 
 const { chains, provider, webSocketProvider } = configureChains(
