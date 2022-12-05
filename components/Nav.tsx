@@ -2,6 +2,7 @@ import styles from "../styles/Home.module.css";
 import { Box, Stack, Link, Spacer, scaleFadeConfig } from "@chakra-ui/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import LocaleSwitcher from "./LocaleSwitcher";
+import React from "react";
 
 interface Props {
   isHeigher: boolean;
@@ -16,11 +17,11 @@ const nav: React.FC<Props> = ({ isHeigher }) => {
   const NAV_ITEMS: Array<NavItem> = [
     {
       label: "ABOUT",
-      href: "https://opensea.io/",
+      href: "https://medium.com/@pupupupuisland.eth/%E6%A3%92%E6%89%93sbf%E5%8D%B3%E5%8F%AF%E5%85%8D%E8%B2%BB%E9%A0%98%E5%8F%96-cyberbonk-nft-1e10c66efef3",
     },
     {
       label: "OPENSEA",
-      href: "https://opensea.io/",
+      href: "https://opensea.io/collection/cyberbonk",
     },
   ];
 
