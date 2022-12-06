@@ -1,4 +1,5 @@
-import { Text, Stack } from "@chakra-ui/react";
+import { Text, Stack, Box } from "@chakra-ui/react";
+import { FaVolumeUp } from "react-icons/fa";
 interface Props {
   count: number;
   isHeigher: boolean;
@@ -34,6 +35,14 @@ const MobileInstru: React.FC<Props> = ({ count, isHeigher, isMobile }) => {
           color="#9FCAD3"
         >
           <Text align="center">Click to BONK</Text>
+          <Box
+            position={"absolute"}
+            right={"35px"}
+            top={"-15px"}
+            transform={"rotate(-25deg)"}
+          >
+            <FaVolumeUp color="#9FCAD3" />
+          </Box>
           <Text align="center">*Use PC for full experience</Text>
         </Stack>
       )}
