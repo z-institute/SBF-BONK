@@ -30,7 +30,7 @@ const { chains, provider, webSocketProvider } = configureChains(
       // You can get your own at https://dashboard.alchemyapi.io
       apiKey: "nFhcdHOC99lvjN-yWR2q_hgO2WcDuV3W",
     }),
-    // publicProvider(),ccccccccccccc 
+    // publicProvider(),
   ]
 );
 

@@ -1,5 +1,5 @@
 import styles from "../styles/Home.module.css";
-import { Box, Stack, Link, Spacer, scaleFadeConfig } from "@chakra-ui/react";
+import { Box, Stack, Link, Spacer } from "@chakra-ui/react";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import LocaleSwitcher from "./LocaleSwitcher";
 import React from "react";
@@ -51,6 +51,17 @@ const nav: React.FC<Props> = ({ isHeigher }) => {
       ))}
       <Box _hover={{ transform: "scale(1.1)" }}>
         <LocaleSwitcher />
+      </Box>
+      <Box
+        ps="15px"
+        className={styles["subscription"]}
+        _hover={{ transform: "scale(1.1)" }}
+      >
+        <a
+          href="https://zinstitute.us21.list-manage.com/subscribe?u=51d01740c7f7d5c67a730f729&id=c1f02be26c"
+        >
+          商家優惠
+        </a>
       </Box>
       <Spacer />
       <ConnectButton
