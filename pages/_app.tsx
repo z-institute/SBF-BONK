@@ -64,8 +64,8 @@ function MyApp({ Component, pageProps, router }: any) {
               title="CyberBonk | 棒打 SBF 即可免費領取 NFT | #CareForFTX"
               description="在 FTX 交易所事件發生後，我們希望可以透過寓教於樂的方式傳遞數位資產的風險管理重要性，只要棒打 SBF 滿 111 下，就可以 free mint 一個 NFT，我們也延伸發起了一項社群串連送暖活動，讓品牌、商家及需要協助的用戶，找到所需的協助及優惠。"
               openGraph={{
-                url: "https://www.url.ie/a",
-                title: "https://cyberbonk.zinstitute.net/",
+                url: "https://cyberbonk.zinstitute.net/",
+                title: "CyberBonk | 棒打 SBF 即可免費領取 NFT | #CareForFTX",
                 description:
                   "在 FTX 交易所事件發生後，我們希望可以透過寓教於樂的方式傳遞數位資產的風險管理重要性，只要棒打 SBF 滿 111 下，就可以 free mint 一個 NFT，我們也延伸發起了一項社群串連送暖活動，讓品牌、商家及需要協助的用戶，找到所需的協助及優惠。",
                 images: [
