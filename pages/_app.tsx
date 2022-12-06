@@ -71,8 +71,6 @@ function MyApp({ Component, pageProps, router }: any) {
                 images: [
                   {
                     url: siteConfigs.bannerUrl,
-                    width: 800,
-                    height: 600,
                     alt: "Og Image Alt",
                     type: "image/jpeg",
                   },
@@ -80,8 +78,6 @@ function MyApp({ Component, pageProps, router }: any) {
                 siteName: "CyberBonk | 棒打 SBF 即可免費領取 NFT | #CareForFTX",
               }}
               twitter={{
-                // handle: "@handle",
-                // site: "@site",
                 cardType: "summary_large_image",
               }}
             />
