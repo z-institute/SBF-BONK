@@ -9,7 +9,6 @@ import {
 } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { alchemyProvider } from "wagmi/providers/alchemy";
-import { publicProvider } from "wagmi/providers/public";
 import { ChakraProvider } from "@chakra-ui/react";
 import { NextIntlProvider } from "next-intl";
 import { useEffect } from "react";
@@ -31,7 +30,7 @@ const { chains, provider, webSocketProvider } = configureChains(
       // You can get your own at https://dashboard.alchemyapi.io
       apiKey: "nFhcdHOC99lvjN-yWR2q_hgO2WcDuV3W",
     }),
-    // publicProvider(),
+    // publicProvider(),ccccccccccccc 
   ]
 );
 

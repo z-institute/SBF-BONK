@@ -135,6 +135,16 @@
 
   color: #ffffff;
 }
+
+.subscription {
+  font-size: 20px;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  line-height: 70px;
+  text-decoration: none;
+}
+
 .cz {
   position: absolute;
   width: 299px;
