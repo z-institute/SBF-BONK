@@ -6,7 +6,14 @@ import Sbf from "../public/sbf.png";
 import Nav from "../components/Nav";
 import { useRef, useEffect, useState } from "react";
 import useNFTMint from "../hooks/useNFTMint";
-import { Container, Box, Button, useMediaQuery, Image } from "@chakra-ui/react";
+import {
+  Container,
+  Box,
+  Button,
+  useMediaQuery,
+  Image,
+  useToast,
+} from "@chakra-ui/react";
 import { useTranslations } from "next-intl";
 import Members from "../components/Members";
 import MobileInstru from "../components/MobileInstru";
@@ -52,10 +59,42 @@ const Home: NextPage = () => {
   const [status, setStatus] = useState("done!");
   const [link, setLink] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const toast = useToast();
+  const [bonkText, setBonkText] = useState("Bonk");
 
-  const handleClick = () => {
+  const handleClick = async () => {
     if (count < 111) {
       setCount(count + 1);
+    }
+    if (count == 110) {
+      setBonkText("MINT");
+      setCount(111);
+    }
+    if (count == 111) {
+      if (isConnected == false) {
+        window.alert("請先連結錢包");
+      } else {
+        // 有連結錢包後才能執行 mint
+        try {
+          setIsLoading(true);
+          setStatus("Minting...");
+          let freeMintTx = await freeMintAsync?.();
+          await freeMintTx?.wait();
+          setLink(`https://etherscan.io/tx/${freeMintTx?.hash}`);
+          setCount(0);
+          setIsLoading(false);
+          toast({
+            title: "Minted!",
+            position: "bottom-right",
+            status: "success",
+            duration: 6000,
+            isClosable: true,
+          });
+        } catch (error) {
+          setStatus("Error, please try again.");
+          setIsLoading(false);
+        }
+      }
     }
   };
 
@@ -117,80 +156,40 @@ const Home: NextPage = () => {
           />
           <Box className={styles["batWrapper"]} ref={batRef} />
           {/* BONK BUTTON */}
-          {isMobile ||
-            (count < 111 && (
-              <Button
-                w="200px"
-                height="50px"
-                position="absolute"
-                fontSize="30px"
-                color="#07839E"
-                borderRadius="38.5px"
-                onMouseDown={mouseDown}
-                onMouseUp={mouseUp}
-                className={styles["bonkButton"]}
-                ref={bonkRef}
-                zIndex="10"
-                onClick={handleClick}
-                isLoading={isLoading}
-                top={
-                  isH
-                    ? "calc(100vh - (100vh - 1094px) - 137px)"
-                    : "calc(100vh - (100vh - 1094px) - 5px - 155px) "
-                }
-                _hover={{ color: "#ffffff", backgroundColor: "#07839E" }}
-              >
-                BONK
-              </Button>
-            ))}
-          {/* Mint Button */}
-          {isMobile ||
-            (count >= 111 && (
-              <Button
-                as="a"
-                w="200px"
-                height="50px"
-                position="absolute"
-                fontSize="30px"
-                color="#07839E"
-                borderRadius="38.5px"
-                className={styles["bonkButton"]}
-                top={
-                  isH
-                    ? "calc(100vh - (100vh - 1094px) - 137px)"
-                    : "calc(100vh - (100vh - 1094px) - 5px - 155px) "
-                }
-                zIndex="10"
-                isLoading={isLoading}
-                onClick={async () => {
-                  // 先判斷是否有連結錢包
-                  if (isConnected == false) {
-                    window.alert("請先連結錢包");
-                  } else {
-                    // 有連結錢包後才能執行 mint
-                    try {
-                      setIsLoading(true);
-                      setStatus("Minting...");
-                      let freeMintTx = await freeMintAsync?.();
-                      await freeMintTx?.wait();
-                      setStatus("Minted!");
-                      setLink(`https://etherscan.io/tx/${freeMintTx?.hash}`);
-                      setCount(0);
-                      setIsLoading(false);
-                    } catch (error) {
-                      setStatus("Error, please try again.");
-                      setIsLoading(false);
-                    }
-                  }
-                }}
-              >
-                MINT
-              </Button>
-            ))}
+          {isMobile || (
+            <Button
+              w="200px"
+              height="50px"
+              position="absolute"
+              fontSize="30px"
+              color="#07839E"
+              borderRadius="38.5px"
+              onMouseDown={mouseDown}
+              onMouseUp={mouseUp}
+              className={styles["bonkButton"]}
+              ref={bonkRef}
+              zIndex="10"
+              onClick={handleClick}
+              isLoading={isLoading}
+              top={
+                isH
+                  ? "calc(100vh - (100vh - 1094px) - 137px)"
+                  : "calc(100vh - (100vh - 1094px) - 5px - 155px) "
+              }
+              _hover={{ color: "#ffffff", backgroundColor: "#07839E" }}
+            >
+              {bonkText}
+            </Button>
+          )}
           {/* Transaction Status */}
-          <TrxStatus status={status} count={count} isMobile={isMobile} />
+          <TrxStatus
+            status={status}
+            count={count}
+            isMobile={isMobile}
+            isHeigher={isH}
+          />
           {/* Transaction Link */}
-          <TrxLink link={link} />
+          <TrxLink link={link} isHeigher={isH} />
           <MobileInstru count={count} isHeigher={isH} isMobile={isMobile} />
         </Box>
         <Members isHeigher={isH} isMobile={isMobile} />

@@ -4,9 +4,10 @@ interface Props {
   status: string;
   count: number;
   isMobile: boolean;
+  isHeigher: boolean;
 }
 
-const TrxStatus: React.FC<Props> = ({ status, count, isMobile }) => {
+const TrxStatus: React.FC<Props> = ({ status, count, isMobile, isHeigher }) => {
   return (
     <>
       {isMobile ||
@@ -18,6 +19,11 @@ const TrxStatus: React.FC<Props> = ({ status, count, isMobile }) => {
             color="#ffffff"
             left="50%"
             transform="translateX(-50%)"
+            top={
+              isHeigher
+                ? "calc(100vh - (100vh - 1094px) - 74px)"
+                : "calc(100vh -  (100vh - 1094px) - 26px - 74px)"
+            }
           >
             {status}
           </Text>
