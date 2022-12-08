@@ -197,7 +197,7 @@
 .nav button[type="button"] {
   height: 50px;
 }
-.nav > div:nth-child(5) {
+.nav > div:nth-child(6) {
   align-items: center;
   margin: 0 10px;
 }
